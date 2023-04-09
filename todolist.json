@@ -1,0 +1,64 @@
+{
+    "openapi": "3.0..3",
+    "info": {
+        "title": "Todolist RESTful API",
+        "version": "1",
+        "description": "OpenAPI for Todolist RESTful API",
+        "termsOfService": "https://github.com/Dzaakk/learn-openapi",
+        "contact": {
+            "name": "Dzaky Mohammad",
+            "email": "dzkyy25@gmail.com",
+            "url": "https://github.com/Dzaakk/learn-openapi"
+        },
+        "license": {
+            "name": "APACHE 2.0",
+            "url": "https://www.apache.org/licenses/LICENSE-2.0"
+        }
+    },
+    "servers": [
+        {
+            "url": "https://{environment}.github.com/Dzaakk/learn-openapi",
+            "variables": {
+                "environment": {
+                    "description": "Server Envvironment",
+                    "default": "dev",
+                    "enum": [
+                        "dev",
+                        "qa",
+                        "prod"
+                    ]
+                }
+            }
+        }
+    ],
+    "externalDocs": {
+        "description": "Youtube",
+        "url": "https://www.youtube.com"
+    },
+    "paths": {
+        "/todolist": {
+            "get": {
+                "summary": "Get all todolist",
+                "description": "Get all active todolist by default",
+                "responses": {}
+            },
+            "post": {
+                "summary": "Create new todolist",
+                "description": "Create new todolist to database",
+                "responses": {}
+            }
+        },
+        "/todolist/{todolistId}": {
+            "put": {
+                "summary": "Update existing todolist",
+                "description": "Update existing todolist in database",
+                "responses": {}
+            },
+            "delete": {
+                "summary": "Delete existing todolist",
+                "description": "Delete existing todolist in database",
+                "responses": {}
+            }
+        }
+    }
+}
