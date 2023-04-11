@@ -38,6 +38,9 @@
     "paths": {
         "/todolist": {
             "get": {
+                "tags": [
+                    "todolist"
+                ],
                 "summary": "Get all todolist",
                 "description": "Get all active todolist by default",
                 "parameters": [
@@ -135,6 +138,9 @@
                 }
             },
             "post": {
+                "tags": [
+                    "todolist"
+                ],
                 "summary": "Create new todolist",
                 "description": "Create new todolist to database",
                 "requestBody": {
@@ -253,6 +259,9 @@
         },
         "/todolist/{todolistId}": {
             "put": {
+                "tags": [
+                    "todolist"
+                ],
                 "summary": "Update existing todolist",
                 "description": "Update existing todolist in database",
                 "parameters": [
@@ -392,6 +401,9 @@
                 }
             },
             "delete": {
+                "tags": [
+                    "todolist"
+                ],
                 "summary": "Delete existing todolist",
                 "description": "Delete existing todolist in database",
                 "parameters": [
@@ -451,6 +463,96 @@
                                         }
                                     }
                                 }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "parameters": {
+            "TodolistId": {
+                "name": "todolistId",
+                "in": "path",
+                "required": true,
+                "description": "Todolist id for updated",
+                "schema": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 100
+                },
+                "examples": {
+                    "java": {
+                        "description": "Sammple todolist id for Java",
+                        "value": "1"
+                    },
+                    "php": {
+                        "description": "Sammple todolist id for PHP",
+                        "value": "2"
+                    }
+                }
+            }
+        },
+        "schemas": {
+            "Todolist": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "priority": {
+                        "type": "number",
+                        "format": "int32"
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "CreateOrUpdateTodolist": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "priority": {
+                        "type": "number",
+                        "format": "int32"
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "ArrayTodolist": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        },
+                        "name": {
+                            "type": "string"
+                        },
+                        "priority": {
+                            "type": "number",
+                            "format": "int32"
+                        },
+                        "tags": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
                             }
                         }
                     }
